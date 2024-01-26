@@ -36,8 +36,8 @@ public class UsuarioController {
 		return ResponseEntity.ok(usuarios);
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Usuario> obtenerUsuarioPorId(@PathVariable UUID id) {
+	@GetMapping("buscar/{id}")
+	public ResponseEntity<Usuario> buscarPorId(@PathVariable UUID id) {
 		try {
 			Usuario usuario = usuarioService.obtenerUsuarioPorId(id);
 			return ResponseEntity.ok(usuario);
@@ -60,7 +60,7 @@ public class UsuarioController {
         }
     }
 
-	@PutMapping("/{id}")
+	@PutMapping("actualizar/{id}")
 	public ResponseEntity<Usuario> actualizarUsuario(@PathVariable UUID id, @RequestBody Usuario nuevoUsuario) {
 		try {
 			Usuario usuarioActualizado = usuarioService.actualizarUsuario(id, nuevoUsuario);
@@ -70,7 +70,7 @@ public class UsuarioController {
 		}
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("eliminar/{id}")
 	public ResponseEntity<Void> eliminarUsuario(@PathVariable UUID id) {
 		try {
 			usuarioService.eliminarUsuario(id);

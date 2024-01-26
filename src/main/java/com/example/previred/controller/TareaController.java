@@ -31,8 +31,8 @@ public class TareaController {
         return ResponseEntity.ok(tareas);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Tarea> obtenerTareaPorId(@PathVariable Integer id) {
+    @GetMapping("buscar/{id}")
+    public ResponseEntity<Tarea> buscarPorId(@PathVariable Integer id) {
         Tarea tarea = tareaService.obtenerTareaPorId(id);
         return ResponseEntity.ok(tarea);
     }
@@ -43,13 +43,13 @@ public class TareaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevaTarea);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("actualizar/{id}")
     public ResponseEntity<Tarea> actualizarTarea(@PathVariable Integer id, @RequestBody Tarea nuevaTarea) {
         Tarea tareaActualizada = tareaService.actualizarTarea(id, nuevaTarea);
         return ResponseEntity.ok(tareaActualizada);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("eliminar/{id}")
     public ResponseEntity<Void> eliminarTarea(@PathVariable Integer id) {
         tareaService.eliminarTarea(id);
         return ResponseEntity.noContent().build();
