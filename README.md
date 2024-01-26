@@ -19,11 +19,17 @@ http://localhost:8080/api/usuarios/crearUsuario
 http://localhost:8080/api/usuarios/eliminar/1
 
 curl -X 'DELETE' \
-  'http://localhost:8080/api/usuarios/1' \
+  'http://localhost:8080/api/usuarios/1' 
 
 **Actualizar
 
-http://localhost:8080/api/usuarios/actualizar/1
+http://localhost:8080/api/usuarios/actualizar
+{
+"id":1
+"nombre": "Juan Rodriguez",
+"email": "juan@rodriguez.org",
+"password": "hunter2"
+}
 
 **buscar
 
@@ -64,7 +70,16 @@ curl -X 'DELETE' \
 
 **Actualizar
 
-http://localhost:8080/api/tareas/actualizar/1
+http://localhost:8080/api/tareas/actualizar
+{
+"id":1
+"nombreTarea": "prueba",
+"descripcion": "descripcion de prueba",
+"estadoTarea": [
+{
+"estado": "creado"
+}] 
+}
 
 **buscar
 
